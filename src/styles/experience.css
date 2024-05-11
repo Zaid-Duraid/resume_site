@@ -1,0 +1,13 @@
+.link{
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link:hover {
+  font-size:larger;
+}
+
+.experience_image:hover{
+  transform: scale(1.1) ;
+}

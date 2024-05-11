@@ -1,0 +1,93 @@
+$primary: rgb(144,238,144);
+$secondary: lightgrey;
+$headings-font-family:        "'Times New Roman', Times, serif";
+$font-family-base:            'Lucida Sans';
+$headings-color:              lightgreen;
+
+$box-shadow:                  0 .5rem 1rem  rgba(0,0,0, .75);
+$box-shadow-sm:               0 .125rem .25rem rgba(255,255,255,200);
+$box-shadow-lg:               0 1rem 3rem rgba(255,255,255,200);
+$box-shadow-inset:            inset 0 1px 2px rgba(255,255,255,200);
+
+$font-size-base:             0.75rem;
+//Import the rest of Bootstrap functionality. The code written above is there in order to overwrite some Bootstrap functionality.
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+//================== SWITCH BETWEEN MOBILE AND DESKTOP HEADER ===================
+@media screen and (min-width: 863px) {
+  .for_mobile {
+    display: none;
+  } 
+
+  .dynamic_size_heading {
+    font-size: 1.5vw;
+  }
+  
+  // .main_page_image {
+  //   display: block; 
+  //   width: 70%;
+  //   margin-left: auto; 
+  //   margin-right: auto;
+  // }
+
+  // .contact_us_form {
+  //   width: 95%;
+  // } 
+}
+
+@media screen and (max-width: 862px) {
+  .for_desktop {
+    display: none; 
+  } 
+
+  .dynamic_size_heading {
+    font-size: 2.8vw;
+  }
+
+  .dynamic_size_text {
+    font-size: 4vw !important;
+  }
+
+  // .main_page_image {
+  //   width: 100%;
+  // }
+  
+}
+//===============================================================================
+
+
+body {
+  background-color: rgb(35,35,35);
+}
+
+.header,footer{
+  background:  rgb(76, 75, 75);
+}
+
+.footer{
+  background:  rgb(76, 75, 75);
+}
+  
+.btn:hover {
+  background-color: green !important;
+
+}
+
+.socials_button {
+  background-color: inherit;
+  border:none;
+}
+
+.enlarge_image_hover:hover{
+  transform: scale(1.1);
+}
+
+p, ul{
+  color: lightgray;
+}
+
+.solid_divider {
+  border-top: 2px solid #bbb;
+}
+
+

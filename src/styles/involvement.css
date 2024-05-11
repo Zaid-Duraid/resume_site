@@ -1,0 +1,54 @@
+.involvements_containers{
+  display: grid;
+  grid-template-columns: 47.5% 47.5%;
+  column-gap: 5%;
+}
+
+.involvement_heading_container{
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  align-items: center;
+}
+
+.involvement_heading_text{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: lightgreen;
+}
+
+.involvement_content{
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 10px;
+  font-size: large;
+  align-items: center;
+}
+
+.link{
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link:hover {
+  font-size:larger;
+}
+
+.extended_involvement_text {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: inherit;
+}
+
+.involvement_responsibilities_list{
+  position: relative;
+  top: -10px;
+  left: -20px;
+}
+
+.involvement_image:hover{
+  transform: scale(1.05);
+  position:relative;
+  left:-10px;
+}

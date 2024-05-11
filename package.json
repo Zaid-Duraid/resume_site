@@ -1,0 +1,22 @@
+{
+  "name": "resume-site",
+  "version": "1.0.0",
+  "description": "Zaid Duraid's Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zaid-Duraid/resume_site.git"
+  },
+  "author": "Zaid Duraid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zaid-Duraid/resume_site/issues"
+  },
+  "homepage": "https://github.com/Zaid-Duraid/resume_site#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}

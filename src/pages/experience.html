@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zaid Duraid</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/experience.css" />
+    <link rel="stylesheet" href="../styles/icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="../main.js"></script>
+
+    <!-- DESKTOP VIEW HEADER -->
+    <div class="container-fluid header for_desktop">
+        <div class="row align-items-center">
+            <div class="col">
+                <p class="h1 mt-2 text-center" style="font-family:Georgia, 'Times New Roman', Times, serif;">Zaid Duraid
+                </p>
+            </div>
+            <div class="col-auto">
+                <button type="button" onclick="window.location.href='about.html'"
+                    class="btn btn-primary btn-lg">About</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" onclick="window.location.href='experience.html'"
+                    class="btn btn-primary btn-lg">Experience</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" onclick="window.location.href='projects.html'"
+                    class="btn btn-primary btn-lg">Projects</button>
+            </div>
+            <div class="col-auto">
+                <button type="button" onclick="window.location.href='contact.html'"
+                    class="btn btn-primary btn-lg">Contact</button>
+            </div>
+        </div>
+    </div>
+    <!----------------->
+    <!-- MOBILE VIEW HEADER -->
+    <div class="container-fluid header for_mobile ">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="btn-group d-flex" role="group" aria-label="Basic example">
+                    <button class="btn btn-primary btn-sm border border-secondary"
+                        onclick="window.location.href='about.html'" type="button">
+                        <div class="text fs-10">
+                            About
+                        </div>
+                    </button>
+                    <button class="btn btn-primary btn-sm border border-secondary"
+                        onclick="window.location.href='experience.html'" type="button">
+                        Experience
+                    </button>
+                    <button class="btn btn-primary btn-sm border border-secondary"
+                        onclick="window.location.href='projects.html'" type="button">
+                        Projects
+                    </button>
+                    <button class="btn btn-primary btn-sm border border-secondary"
+                        onclick="window.location.href='contact.html'" type="button">
+                        Contact
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------->
+    <p class="display-5 text-primary text-center my-2">Work Experience</p>
+    <div class="row row-cols-1 row-cols-lg-2" style="width: 100%;">
+        
+        <div class="col d-flex align-items-center">
+            <div id="avalonHolographicsCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../public/avalon_holographics/avalon_holographics_logo.png"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/avalon_holographics/avalon_holographics_office.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/avalon_holographics/avalon_holographics_enterance.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/avalon_holographics/avalon_holographics_friends.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#avalonHolographicsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#avalonHolographicsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col align-items-center d-flex">
+            <div>
+                <p class="h5 text-center dynamic_size_heading "
+                    onclick="button_redirect('https://www.avalonholographics.com/')"><img
+                        class="img-fluid enlarge_image_hover for_desktop"
+                        src="../public/avalon_holographics/avalon_holographics_head_logo.png" style="height:3.6rem;">FPGA
+                    Design Intern | Avalon
+                    Holographics Inc. | Jan 2024 - Apr 2024 </p>
+                <p class="text-secondary fs-4 m-2 dynamic_size_text">Avalon Holographics is a St. John's based company
+                    developing the worlds' most advanced Holographic Displays.<br><br>
+                    Contributions:</p>
+                <ul class="text-secondary fs-4 m-2 dynamic_size_text">
+                    <li>Updated test benches and developed several testcases for FPGA designs in SystemVerilog.</li>
+                    <li>Ran simulations to detect cornercase problems in the display datapath using Intel Quartus® Prime.
+                    </li>
+                    <li>Developed correction parameter generation environment for the <a
+                            class="link-underline-primary Link-hover-opacity-50"
+                            onclick="button_redirect('https://novac3d.com/')">
+                            NOVAC</a> display using Python.</li>
+                    <li>Supported new firmware validation on hardware and PCB bringup.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr class="solid_divider" />
+    <div class="row row-cols-1 row-cols-lg-2" style="width: 100%;">
+        
+        <div class="col d-flex align-items-center order-lg-1">
+            <div id="easternEdgeRoboticsCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../public/eastern_edge_robotics/eastern_edge_large_logo.png"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/eastern_edge_robotics/eastern_edge_on_deck_2023.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/eastern_edge_robotics/eer_team_photo.jpg" class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/eastern_edge_robotics/eastern_edge_team_banner.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/eastern_edge_robotics/beaumont_first_swim.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#easternEdgeRoboticsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#easternEdgeRoboticsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col align-items-center d-flex">
+            <div>
+                <p class="h3 text-center dynamic_size_heading"
+                    onclick="button_redirect('https://www.easternedgerobotics.com/')"><img
+                        class="img-fluid enlarge_image_hover for_desktop"
+                        src="../public/eastern_edge_robotics/eer_logo.png" style="height:3rem;">Software Team Lead |
+                    Eastern Edge Robotics | Feb 2023 - Current </p>
+                <p class="text-secondary fs-4 m-2 dynamic_size_text">Eastern Edge Robotics is a multidiciplinary
+                    engineering design team based from the Memorial University of Newfoundland
+                    and the Fisheries and Marine Institute. The team competes in the annual <a
+                        class="link-underline-primary Link-hover-opacity-50"
+                        onclick="button_redirect('https://materovcompetition.org/')">
+                        MATE ROV Competition</a>, and meets for 6-10 hours weekly.<br><br>
+                    Contributions:</p>
+                <ul class="text-secondary fs-4 m-2 dynamic_size_text">
+                    <li>Developing a dockerized ROS2 backend environment using Python to control ROV movement and
+                        tooling to run on on-board Raspberry Pi.</li>
+                    <li>Facilitating communications between backend and browser-based React Javascript frontend.</li>
+                    <li>Contributing to the React frontend UI.</li>
+                    <li>Writing a ROV simulation environment using Gazebo Classic for pilot practice and testing.</li>
+                    <li>Developing algorithms to complete MATE competition mission tasks.</li>
+                    <li>Managing software team members and reporting to other subteams.</li>
+                </ul>
+                <p class="text-secondary fs-4 m-2 dynamic_size_text"><a
+                        class="link-underline-primary Link-hover-opacity-50"
+                        onclick="button_redirect('https://github.com/EasternEdgeRobotics/Software_2024')">See the
+                        Software 2024 repository</a></p>
+            </div>
+        </div>
+    </div>
+    <hr class="solid_divider" />
+
+    <div class="row row-cols-1 row-cols-lg-2" style="width: 100%;">
+
+        <div class="col d-flex align-items-center">
+            <div id="newfoundlandAndLabradorHydroCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../public/newfoundland_and_labrador_hydro/newfoundland_and_labrador_hydro_logo.png"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/newfoundland_and_labrador_hydro/hydro_place.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/newfoundland_and_labrador_hydro/holyrood_terminal_station.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/newfoundland_and_labrador_hydro/control_house.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button"
+                    data-bs-target="#newfoundlandAndLabradorHydroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                    data-bs-target="#newfoundlandAndLabradorHydroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col align-items-center d-flex">
+            <div>
+                <p class="h3 dynamic_size_heading text-center " onclick="button_redirect('https://nlhydro.com/')"><img
+                        class="img-fluid enlarge_image_hover me-4 for_desktop"
+                        src="../public/newfoundland_and_labrador_hydro/newfoundland_and_labrador_hydro_mini_logo.png"
+                        style="height:4rem;">Engineering Intern | NLHydro | May 2023 - Aug 2023 </p>
+                <p class="text-secondary fs-4 m-2 dynamic_size_text">Newfoundland and Labrador Hydro (NLHydro) is a 
+                    provincial Crown corporation that generates and delivers electricity, mainly Hydroelectric, for 
+                    Newfoundland and Labrador, as well as portions of Quebec and the northeastern areas of the United States.
+                    <br><br>
+                    I worked within the Protection, Control, and Communications team at the Hydro Place building in St. John's.
+                    Contributions:</p>
+                <ul class="text-secondary fs-4 m-2 dynamic_size_text">
+                    <li>Revising and upgrading electrical drawings for replacing protection equipment in NLHydro's power transmission network.</li>
+                    <li>Conducting site visits to Terminal Stations for electrical panel and schematic design.</li>
+                    <li>Assisting engineers within the department with various technical jobs.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr class="solid_divider" />
+    <p class="h1 text-primary text-start m-3">Volunteering/Other Experience</p>
+    <div class="row row-cols-1 row-cols-lg-2" style="width: 100%;">
+        
+        <div class="col d-flex align-items-center order-lg-1">
+            <div id="volunteeringCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../public/other_experience_or_volunteering/pheonix_team_photo.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/other_experience_or_volunteering/first_lego_league_group_photo.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/other_experience_or_volunteering/mate_2024_compeition_assembly.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../public/other_experience_or_volunteering/mate_2024_regionals_on_deck.jpg"
+                            class="ms-2 ps-3 d-block w-100">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button"
+                    data-bs-target="#volunteeringCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                    data-bs-target="#volunteeringCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col align-items-center d-flex">
+            <div>
+                <p class="text-secondary fs-4 m-2 dynamic_size_text">Additional places where I gained experience or volunteered include:</p>
+                <ul class="text-secondary fs-4 m-2 dynamic_size_text">
+                    <li>Memorial Univeristy of Newfoundland and Labrador Engineering Design Team <a class="link-underline-primary Link-hover-opacity-50"onclick="button_redirect('https://phoenixaerospace.github.io/PhoenixAerospaceWebsite')">
+                        Phoenix Aerospace</a> | ROS1, Gazebo Classic, RC Planes, Frontend Website Development.</li>
+                    <li><a class="link-underline-primary Link-hover-opacity-50"onclick="button_redirect('https://materovcompetition.org/')">
+                        MATE ROV Competition</a> 2023 and 2024 Canadian Regionals | Safety Inspector, Referee, Technical Support.</li>
+                    <li>2023-24 Newfoundland and Labrador <a class="link-underline-primary Link-hover-opacity-50"onclick="button_redirect('https://firstroboticsnl.org/')">
+                        FIRST LEGO League Championship</a> | Referee.</li>
+                    <li>James Paton Memorial Hospital, Gander, NL | Patient Comfort Assistant and Giftship Clerk.</li>
+                    <li>Student Council Member, Gander Collegiate, Gander, NL | Bowling Scorekeeper.</li>
+                    <li>Gander Special Olympics Bowling Club, Gander, NL | Bowling Scorekeeper.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="d-flex flex-wrap footer justify-content-between align-items-center border-top" style="height: 4rem;">
+        <div class="col-md-2">
+            <p class="text-primary fs-5 ps-2">© 2024 Zaid Duraid</p>
+        </div>
+        <div class="col-auto d-flex align-items-start">
+            <div class="btn-group d-flex" role="group" aria-label="Basic example">
+                <button class="socials_button enlarge_image_hover"
+                    onclick="button_redirect('https://github.com/Zaid-Duraid')">
+                    <img class="img-fluid" style="height: 3.8rem;" src="../public/github_img.png" />
+                </button>
+                <button class="socials_button enlarge_image_hover"
+                    onclick="button_redirect('https://www.linkedin.com/in/zaid-duraid-932707261/')">
+                    <img class="img-fluid" style="height: 3.8rem;" src="../public/linkedin_img.png" />
+                </button>
+            </div>
+        </div>
+        <div class="col-md-2 d-flex"></div>
+    </footer>
+    <!-- <div class="card-group animation_wrapper justify-content-center">
+            <div class="card slide_in_left_object my-5 mx-3 shadow" style="background-color: rgb(210, 210, 210)">
+                    <img src="../public/first_lego_league_group_photo.jpg" class="card-img-top" style="width: 100%" />
+                    <div class="card-body">
+                        <p class="card-title h1 text-center text-primary">
+                            PAX-2
+                        </p>
+                        <p class="card-text fs-5" >
+                            In preperation for the
+                            <a class="link" onclick="button_redirect('https://www.aiaa.org/dbf')">
+                                the AIAA DBF competition</a>, the team will build a competition-worthy plane while
+                            bolstering recruitment efforts. The project will prepare the
+                            team to ultimately participate in the 2025 DBF competition!
+                        </p>
+                    </div>
+            </div>
+            <div class="card my-5 mx-3 shadow slide_in_right_object" style="background-color: rgb(210, 210, 210)">
+                <img src="../public/eer_team_photo.jpg" class="card-img-top" style="width: 100%" />
+                <div class="card-body">
+                    <p class="card-title h1 text-center text-primary" >PAX-1</p>
+                    <p class="card-text fs-5" >
+                        Over the summer of 2023, Phoenix Aerospace built and flew a
+                        starter RC plane based of a
+                        <a class="link"
+                            onclick="button_redirect('https://joyplanes.com/en/homemade-rc-trainer-airplane/')">
+                            a design on Joyplanes.com</a>. This plane was mostly a trial run to familiarize the team
+                        with
+                        the RC plane material aquisition and building process. Currently,
+                        PAX-1 remains operational as a practice plane for Phoenix
+                        Aerospace!
+                    </p>
+                </div>
+            </div>
+        </div>
+    <div class="involvements_containers">
+        <div>
+            <div class="involvement_heading_container">
+                <img class="involvement_image" onclick="buton_redirect('https://www.easternedgerobotics.com/')" src="../public/eer_logo.png"/>
+                <p class="involvement_heading_text">
+                    Eastern Edge Robotics Software Team Lead<br>
+                    (February 2023-Present)
+                </p>
+            </div>
+            <div class="involvement_content">
+                <img style="width: 100%; border-radius: 50px;" class="involvement_image" onclick="button_redirect('https://www.easternedgerobotics.com/media.html')" src="../public/eer_team_photo.jpg"/>
+                <p>
+                    <a class="link" onclick="button_redirect('https://www.easternedgerobotics.com/')">Eastern Edge Robotics </a> (EER) is a 
+                    multidiciplinary engineering design team at the Memorial University of Newfoundland. Every year, EER builds 
+                    an underwater ROV to compete in the <a class="link" href="https://materovcompetition.org/"> MATE International
+                    ROV competition.</a>
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="involvement_heading_container">
+                <img style="width:100%; border-radius: 50%;" src="../public/pheonix_aerospace_plane.jpg"/>
+                <p class="involvement_heading_text">
+                    Pheonix Aerospace Team Member<br>
+                    (October 2022-Present)
+                </p>
+            </div>
+            <div class="involvement_content">
+                <img style="width: 100%; border-radius: 50px;" src="../public/pheonix_team_photo.jpg"/>
+                <p>
+                    Pheonix Aerospace is the first aerospace team at the Memorial University of Newfoundland.
+                    Currently working on protoypes, skill building, and recruitment, the team aims to eventually
+                    compete in an international or national aerospace competition.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="named_divider">
+        <div class="named_divider_section"><hr class="solid_divider"></div>
+        <p class="named_divider_text">Volunteering Events</p>
+        <div class="named_divider_section"><hr class="solid_divider"></div>
+    </div>
+    <div style="min-height: 560px;" class="involvements_containers">
+        <div>
+            <div class="involvement_heading_container">
+                <img style="position: relative;left: 10px;top: -5px;border-radius: 50%; width: 100%;"  class="involvement_image" onclick="button_redirect('https://materovcompetition.org/regionals')" src="../public/mate_rov_logo.jpg"/>
+                <p class="involvement_heading_text">
+                    MATE Regional ROV Competition<br>
+                    Volunteer Technical Support 
+                </p>
+            </div>
+            <div class="involvement_content">
+                <img style="width: 100%; border-radius: 50px;" class="involvement_image" onclick="button_redirect('https://materovcompetition.org/regionals')" src="../public/marine_institute_mate_regionals.jpg"/>
+                <p>
+                    <a class="link" onclick="button_redirect('https://materovcompetition.org/regionals')">
+                    The MATE Regional ROV Competition</a> is held once a year in many places around the world,
+                    across many divisions. In Newfoundland and Labrador, the junior high regional competition 
+                    takes place at the <a class="link" onclick="button_redirect('https://www.mi.mun.ca/')">
+                    Fisheries and Marine Institute.</a>
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="involvement_heading_container">
+                <img style="position:relative;top: -5px; width:100%; border-radius: 50%;" class="involvement_image" onclick="button_redirect('https://www.firstlegoleague.org/')" src="../public/first_lego_leauge_logo.png"/>
+                <p class="involvement_heading_text">
+                    FIRST® LEGO® League Competition<br>
+                    Volunteer Competition Referee
+                </p>
+            </div>
+            <div class="involvement_content">
+                <img style="width: 100%; border-radius: 50px;" class="involvement_image" onclick="button_redirect('https://www.firstlegoleague.org/')" src="../public/first_lego_league_group_photo.jpg"/>
+                <p>
+                    The <a class="link" onclick="button_redirect('https://www.firstlegoleague.org/')">
+                    FIRST® LEGO® League </a> competition is an annual competition that involves building
+                    and programming small robots that complete a specified list of tasks. Participants must 
+                    formulate a strategy to completing as many tasks as possible in the alloted time limit
+                    to gain maximum points.
+                </p>
+            </div>
+        </div>
+    </div> -->
+</body>
+
+</html>
