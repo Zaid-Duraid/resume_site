@@ -8,6 +8,8 @@ $box-shadow:                  0 .5rem 1rem  rgba(0,0,0, .75);
 $box-shadow-sm:               0 .125rem .25rem rgba(255,255,255,200);
 $box-shadow-lg:               0 1rem 3rem rgba(255,255,255,200);
 $box-shadow-inset:            inset 0 1px 2px rgba(255,255,255,200);
+$nav-tabs-link-bg:           white;
+$nav-tabs-link-active-bg:     $primary;
 
 $font-size-base:             0.75rem;
 //Import the rest of Bootstrap functionality. The code written above is there in order to overwrite some Bootstrap functionality.
@@ -22,17 +24,6 @@ $font-size-base:             0.75rem;
   .dynamic_size_heading {
     font-size: 1.5vw;
   }
-  
-  // .main_page_image {
-  //   display: block; 
-  //   width: 70%;
-  //   margin-left: auto; 
-  //   margin-right: auto;
-  // }
-
-  // .contact_us_form {
-  //   width: 95%;
-  // } 
 }
 
 @media screen and (max-width: 862px) {
@@ -73,6 +64,21 @@ body {
 
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 .socials_button {
   background-color: inherit;
   border:none;
@@ -89,5 +95,7 @@ p, ul{
 .solid_divider {
   border-top: 2px solid #bbb;
 }
+
+.collapse.in { min-height: 50px;border: 1px solid blue; }
 
 

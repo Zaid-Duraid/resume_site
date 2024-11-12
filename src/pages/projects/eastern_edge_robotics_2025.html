@@ -1,0 +1,64 @@
+<p class="text-primary h1 mt-2 mb-4 mx-2 dynamic_size_text">Eastern Edge Robotics 2025</p>
+<p class="text-warning fs-5 m-2 dynamic_size_text">
+    Note: This project is currently in development.<br><br>
+</p>
+
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    Eastern Edge Robotics' 2025 remotely-operated vehicle (ROV), built for the MATE competition, is named WaterWitch.
+    <a
+    class="link-underline-primary Link-hover-opacity-50"
+    onclick="button_redirect('https://github.com/EasternEdgeRobotics/Software_2025')">
+    See this project's repository</a><br><br>
+</p>
+
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    WaterWitch features a Raspberry Pi 4 in the enclosure along with a suite of devices. This includes a Raspberry Pi Pico microcontroller,
+    ADCs, and electronic speed controllers. As the software co-lead, 
+    I contributed to all aspects of the custom-built software package, which allows for real-time control of the ROV.<br><br>
+</p>
+
+<p id="backend" class="text-primary h2 my-3 mx-2 dynamic_size_text">Backend</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    Beaumont's backend is built using ROS2 Jazzy.<br><br>
+</p>
+
+<p id="web-frontend" class="text-primary h2 my-3 mx-2 dynamic_size_text">Web Frontend</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    The web frontend application for piloting WaterWitch was developed in ReactJS and is mainly reused from 2024
+    due to its modularity and ease of integration. 
+    It features a live video feed viewing, a settings tab for setting
+    custom controller mappings, and a control tab for tuning thrust multipliers in certain directions
+    and viewing real-time sensor data.<br><br>
+</p>
+
+<p id="cpp-frontend" class="text-primary h2 my-3 mx-2 dynamic_size_text">C++ Frontend</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    The C++ frontend application for piloting WaterWitch was developed in C++ as an alternative to the web frontend.
+    Although the web frontend makes it possible to control the ROV from any device with a web browser, the C++ frontend
+    was developed for lower latency, quicker development, and more direct control (bypassing ROSlibJS and ROSBridgeServer).<br><br>
+    The C++ frontend may either be used as a command-line or graphical application. The graphical application is built using 
+    <a class="link-underline-primary Link-hover-opacity-50"
+    onclick="button_redirect('https://github.com/ocornut/imgui')">Dear ImGui</a>.<br><br>
+
+</p>
+
+<p id="simulation" class="text-primary h2 my-3 mx-2 dynamic_size_text">Simulation</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    The simulation environment was developed as a independent project intended to be used beyond the 2025 competition year.
+    See <a
+    class="link-underline-primary Link-hover-opacity-50" onclick="loadProject('projects/rov_simulator.html')" href="#">
+    ROV Simulator</a> for more information.<br><br>
+</p>
+
+<p id="streaming-configuration" class="text-primary h2 my-3 mx-2 dynamic_size_text">Streaming Configuration</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    WaterWitch's live view feed is streamed from the ROV's Raspberry Pi 4 and two aditional Raspberry Pi 
+    Zero 2Ws housed in their own enclosures.<br><br>The streaming configuration is done with minimal cabling and
+    doesn't require an ethernet hat on the Pi Zero 2Ws nor an ethernet switch in the main enclosure. Instead,
+    the Pi 4 acts as a switch by connecting to the Pi Zero 2Ws over USB. 
+</p>
+
+<p id="skills" class="text-primary h2 my-3 mx-2 dynamic_size_text">Skills</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    Python, C++, Git, ReactJS, ROS2, Gazebo Simulator, Docker, KiCad, Onshape/Solidworks.
+</p>

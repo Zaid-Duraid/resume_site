@@ -3,9 +3,10 @@ function button_redirect(link){
   window.open(link, "", "");
 }
 
-// const myCarouselElement = document.querySelector('#myCarousel')
-
-// const carousel = new bootstrap.Carousel(myCarouselElement, {
-//   interval: 2000,
-//   touch: false
-// })
+// Can use to make projects collapsible in the future
+function open_project_collapsible(project_name){
+  $(".collapse").collapse('hide'); // Hide all collapsable elements
+  $(".nav-link").removeClass('active'); 
+  $("."+project_name).collapse('show'); // Show the project in interest
+  $("."+project_name+"_button").addClass('active'); 
+}

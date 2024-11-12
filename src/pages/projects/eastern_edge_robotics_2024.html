@@ -1,0 +1,91 @@
+<p class="text-primary h1 mt-2 mb-4 mx-2 dynamic_size_text">Eastern Edge Robotics 2024</p>
+
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    Eastern Edge Robotics' 2024 remotely-operated vehicle (ROV), built for the MATE competition, is named Beaumont.
+    <a
+    class="link-underline-primary Link-hover-opacity-50"
+    onclick="button_redirect('https://github.com/EasternEdgeRobotics/Software_2024')">
+    See this project's repository</a><br><br>
+    
+    Beaumont features a Raspberry Pi 4 in the enclosure along with a suite of devices including microcontrollers,
+    ADCs, temperature sensors, electronic speed controllers, and DC motors. As the software lead, 
+    I contributed to all aspects of the custom-built software package, which allows for real-time control of the ROV.<br><br>
+</p>
+
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+Contents:<br>
+</p>
+<ul class="text-secondary fs-5 lh-lg dynamic_size_text">
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#backend">Backend</a></li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#frontend">Frontend</a></li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#simulation">Simulation</a></li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#streaming-configuration">Streaming Configuration</a></li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#deployment">Deployment</a></li>
+</ul>
+
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2" src="../public/eastern_edge_robotics/eastern_edge_2024_software_diagram.png" alt="Eastern Edge Robotics 2024 Software Diagram"/>
+    <p class="text-secondary fs-6 mt-2">Eastern Edge Robotics 2024 software diagram</p>
+</div>
+
+<p id="backend" class="text-primary h2 my-3 mx-2 dynamic_size_text">Backend</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    Beaumont's backend is built using ROS2 Humble and contains several nodes written in Python. 
+    They perform the following jobs: 
+</p>
+<ul class="text-secondary fs-5 lh-lg dynamic_size_text">
+    <li>Listening for pilot input and performing necessary thruster math</li>
+    <li>Publishing control commands on the control board's i2c bus or, in the 
+        case of the simulation, on Gazebo topics</li>
+    <li>Obtaining and publishing imu, voltage, and temperature data to the frontend</li>
+    <li>Storing and loading configuration data and real-time progress during competition runs</li>
+    <li>Autonomously controlling Beaumont for the "Brain Coral Transplant" 2024 competition task</li>
+</ul>
+
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2" src="../public/eastern_edge_robotics/beaumont_autonomous_coral_transplant_task.png" alt="Eastern Edge Robotics 2024 Software Diagram"/>
+    <p class="text-secondary fs-6 mt-2">Beaumont autonomously performing the "brain coral transplant" task in simulation</p>
+</div>
+
+<p id="frontend" class="text-primary h2 my-3 mx-2 dynamic_size_text">Frontend</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    The frontend web application for piloting Beaumont was developed in ReactJS. 
+    It features a live video feed from the ROV's four cameras, a settings tab for setting
+    custom controller mappings, and a control tab for tuning thrust multipliers in certain directions
+    and viewing real-time sensor data. Overall, it makes it possible to pilot the ROV using any device 
+    with a web browser.
+</p>
+
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2" src="../public/eastern_edge_robotics/beaumont_control_tab.png" alt="Eastern Edge Robotics 2024 Software Diagram"/>
+    <p class="text-secondary fs-6 mt-2">Beaumont's control tab</p>
+</div>
+
+<p id="simulation" class="text-primary h2 my-3 mx-2 dynamic_size_text">Simulation</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    The simulation here, based on Gazebo Classic 11, was developed as part of the software 2024 repository. It 
+    was used for developing other parts of software package in absence of a physical ROV, 
+    planning around mission tasks, pilot practice, and team demos.<br><br>
+    Overall, the simulation integrates seamlessly with the backend and frontend and provides a version of Beaumont 
+    that has thrust, claws, and four cameras streamed over mjpeg. The simulation environment also features a world that includes
+    the majority of the 2024 competition tasks.
+</p>
+
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2" src="../public/eastern_edge_robotics/simulated_vs_real_beaumont.png" alt="Eastern Edge Robotics 2024 Software Diagram"/>
+    <p class="text-secondary fs-6 mt-2">Real vs. simulated Beaumont</p>
+</div>
+
+<p id="streaming-configuration" class="text-primary h2 my-3 mx-2 dynamic_size_text">Streaming Configuration</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    Beaumont's live view feed is streamed from the ROV's Raspberry Pi 4 and three aditional Raspberry Pi 
+    Zero 2Ws housed in their own enclosures. Streaming was done using a open source mjpeg streamer for the Picamera2
+    called <a class="link-underline-primary Link-hover-opacity-50"
+    onclick="button_redirect('https://github.com/mryel00/spyglass')">Spyglass</a>. 
+</p>
+
+<p id="deployment" class="text-primary h2 my-3 mx-2 dynamic_size_text">Deployment</p>
+<p class="text-secondary fs-5 m-2 dynamic_size_text">
+    To ease deployement, both the backend and frontend were dockerized. The entire package could be installed
+    on a fresh Raspberry Pi 4 using a single install script.
+</p>
