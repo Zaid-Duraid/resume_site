@@ -10,3 +10,22 @@ function open_project_collapsible(project_name){
   $("."+project_name).collapse('show'); // Show the project in interest
   $("."+project_name+"_button").addClass('active'); 
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Load header and footer
+  fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+      });
+
+  fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+
+  // Scroll to the top of the page on load
+  window.scrollTo(0, 0);
+});
