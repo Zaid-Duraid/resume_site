@@ -12,6 +12,8 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <!-- Load header and footer -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -43,15 +45,15 @@
                     if (add_divider) {
                         document.getElementById('project-container').innerHTML += '<hr class="solid_divider" />'
                     }
+                    // Re-render MathJax after content is loaded
+                    if (window.MathJax) {
+                        MathJax.typeset();
+                    }
                 })
                 .catch(error => console.error('Error loading project:', error));
         }
-
-        // document.addEventListener("DOMContentLoaded", function () {
-        //     loadProject('projects/rov_simulator.html');
-        // });
-        
     </script>
+
 </head>
 <body>
     <!-- Skip to main content link -->
@@ -77,6 +79,7 @@
             </li>
             <li class="nav-item">
             <a class="nav-link" onclick="loadProject('projects/arduino_mayhem.html', add_divider=true)
+                                        .then(() => loadProject('projects/homelab.html', add_divider=true, clear_previous=false))
                                         .then(() => loadProject('projects/outstanding_shenanigans.html', add_divider=true, clear_previous=false))
                                         .then(() => loadProject('projects/minecraft_mapmaking.html', add_divider=true, clear_previous=false))
                                         .then(() => loadProject('projects/drone_racing_rings.html', add_divider=true, clear_previous=false))

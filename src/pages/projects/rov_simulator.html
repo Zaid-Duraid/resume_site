@@ -1,57 +1,368 @@
 <p class="text-primary h1 mt-2 mb-4 mx-2 dynamic_size_text">ROV Simulator</p>
 
-<p class="text-secondary fs-5 m-2 dynamic_size_text">
-    This project demonstrates an implementation of <a
-    class="link-underline-primary Link-hover-opacity-50"
-    onclick="button_redirect('https://gazebosim.org/docs/harmonic/')">
-    Gazebo Harmonic</a> for simulating underwater
-    remotely operated vehicles (ROVs). It's purpose is to facilitate simulation of underwater 
-    ROVs as quickly as possible using open source software. This may help to improve safety, 
-    facilitate design validation, and increase testing time. <a
-    class="link-underline-primary Link-hover-opacity-50"
-    onclick="button_redirect('https://github.com/EasternEdgeRobotics/rov-sim')">
-    See this project's repository</a><br><br>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    This project demonstrates an implementation of Gazebo Harmonic [1] for simulating underwater remotely operated vehicles (ROVs). Its purpose 
+    is to facilitate simulation of underwater ROVs as quickly as possible using open source software. This may help to improve safety, promote the
+    development of advanced features autonomous driving features, and increase testing time. <a class="link-underline-primary Link-hover-opacity-50" href="#references">
+    See this project's repository [2]</a>
+    <br><br>
 
-    The simulator is developed such that it can be used by any team for any competition year. <br><br>
-
-    Contents:<br>
-</p>
-<ul class="text-secondary fs-5 lh-lg dynamic_size_text">
-    <li><a class="link-underline-primary Link-hover-opacity-50" href="#inspiration">Inspiration</a></li>
-    <li><a class="link-underline-primary Link-hover-opacity-50" href="#plugins">Plugins</a>
-        <ul>
-            <li><a class="link-underline-primary Link-hover-opacity-50" href="#buoyancy">Buoyancy<a></li>
-            <li><a class="link-underline-primary Link-hover-opacity-50" href="#thrust">Thrust</a></li>
-            <li><a class="link-underline-primary Link-hover-opacity-50" href="#claw">Claws</a></li>
-            <li><a class="link-underline-primary Link-hover-opacity-50" href="#hydrodynamics">Hydrodynamics</a></li>
-            <li><a class="link-underline-primary Link-hover-opacity-50" href="#cameras">Cameras</a></li>
-        </ul>
-    </li>
-    <li><a class="link-underline-primary Link-hover-opacity-50" href="#rovs-and-models">ROVs and Models</a>
-        <ul>
-            <li><a class="link-underline-primary Link-hover-opacity-50" href="#beaumont">Beaumont<a></li>
-        </ul>
-    </li>
-    <li><a class="link-underline-primary Link-hover-opacity-50" href="#simulation">Worlds</a></li>
-</ul>
-
-<p id="Inspiration" class="text-primary h2 my-3 mx-2 dynamic_size_text">Inspiration</p>
-<p class="text-secondary fs-5 m-2 dynamic_size_text">
-    I initally built a previous simulation environment as part of the 2024 Eastern Edge Robotics Software Package.
+    I initally built a simulation environment as part of the 2024 Eastern Edge Robotics Software Package.
     It was built using plugins included in Gazebo Classic 11. I figured that, if only 
-    the simulator was available earlier in the competition season, or developed using more tailored plugins and models,
+    the simulation environment was available earlier in the competition season, or developed using more tailored plugins and models,
     it could have been even more useful.<br><br>
 </p>
 
-<p id="plugins" class="text-primary h2 my-3 mx-2 dynamic_size_text">Plugins</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/old_simulation_environment.png" alt="Old Simulation Environment"/>
+    <p class="text-secondary fs-6 mt-2">Old simulation environment</p>
+</div>
+
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The simulation environment is developed such that it can be used by anyone for anything. In lieu of describing this project, this page
+    will be a guide on how to simulate your own ROV.<br><br>
+
+    Contents:<br>
+</p>
+<ul class="text-secondary fs-6 lh-lg dynamic_size_text">
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#importing-a-model">Importing a Model</a></li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#setting-inertial-parameters">Setting Inertial Parameters</a></li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#implementing-plugins">Implementing Plugins</a>
+        <ul>
+            <li><a class="link-underline-primary Link-hover-opacity-50" href="#buoyancy">Buoyancy<a></li>
+            <li><a class="link-underline-primary Link-hover-opacity-50" href="#thrust">Thrust</a></li>
+            <li><a class="link-underline-primary Link-hover-opacity-50" href="#hydrodynamics">Hydrodynamics</a>
+                <ul>
+                    <li><a class="link-underline-primary Link-hover-opacity-50" href="#achieving-accuracy">Achieving Accuracy</a></li>
+                    <li><a class="link-underline-primary Link-hover-opacity-50" href="#water-testing">Water Testing</a></li>
+                </ul>
+            </li>
+            <li><a class="link-underline-primary Link-hover-opacity-50" href="#cameras">Cameras</a></li>
+            <li><a class="link-underline-primary Link-hover-opacity-50" href="#claws">Claws</a></li>
+        </ul>
+    </li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#ros2-integration">ROS2 Integration</a></li>
+    <li><a class="link-underline-primary Link-hover-opacity-50" href="#references">References</a></li>
+</ul>
+
+<p id="importing-a-model" class="text-primary h2 my-3 mx-2 dynamic_size_text">Importing a Model</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    You can always use a box or cylinder (i.e, arbitrary object) as a placeholder for your ROV. However, importing a model is nice 
+    because it allows you to visualize your ROV and have an accurate collision mesh. The following in a model of Eastern Edge Robotics' 
+    2024 ROV, Beaumont, designed in Onshape:
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/beaumont_model_render.webp" alt="Model of Eastern Edge Robotics' 2024 ROV, Beaumont. Credit: Mark Johnson"/>
+    <p class="text-secondary fs-6 mt-2">Model of Eastern Edge Robotics' 2024 ROV, Beaumont<br>Credit: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://www.linkedin.com/in/mark-johnson-48b24422b/?originalSubdomain=ca')">
+        Mark Johnson</a></p>
+</div>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    You probably don't need accurate geometry in simulation. Here's a simpler model for performance purposes: 
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/simplified_beaumont_model.png" alt="Simplified Beaumont Model"/>
+    <p class="text-secondary fs-6 mt-2">Simplified Beaumont model</p>
+</div>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    You can look at the Gazebo documentation [1] or this project's repository [2] to see how to import a CAD model. You'll see that
+    models and worlds are defined in Simulation Desription Format (SDF) files, which are XML files that make it easy to edit 
+    your robot model.<br><br>
+    
+    Here, Beaumont was exported as an STL file from onshape (with units in meters). After attaching additional links for the propellers 
+    and claw (more details coming in the <a class="link-underline-primary Link-hover-opacity-50" href="#implementing-plugins">plugins</a> section), the model looked like this:
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/beaumont_in_simulation.png" alt="Beaumont in Gazebo"/>
+    <p class="text-secondary fs-6 mt-2">Beaumont in Gazebo</p>
+</div>
+
+<p id="setting-inertial-parameters" class="text-primary h2 my-3 mx-2 dynamic_size_text">Setting Inertial Parameters</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    At this point, you can set your ROV's mass, center of mass, and mass moments of inertia parameters.
+    You may obtain these values through measurements or CAD software. The robot building tutorial in the 
+    Gazebo documentation [1] shows how to set the inertial parameters in your model's SDF file. <br><br>
+</p>
+<p id="implementing-plugins" class="text-primary h2 my-3 mx-2 dynamic_size_text">Implementing Plugins</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The most important thing your ROV needs to do is move.<br><br>
+    Moving requires you to simulate all the forces acting on your ROV. Except for gravity, these forces can 
+    be simulated through plugins.
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/beaumont_free_body_diagram.png" alt="Beaumont free body diagram"/>
+    <p class="text-secondary fs-6 mt-2">Beaumont free body diagram</p>
+</div>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    In addition to the general documentation [1], Gazebo Sim's API Reference [3] is a great resource for understanding everything mentioned in the guide and beyond.
+    The source code of the built-in Gazebo plugins [4] can also be helpful.<br><br>
+</p>
 <p id="buoyancy" class="text-primary h3 my-3 mx-2 dynamic_size_text">Buoyancy</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The buoyant force is calculated by Archimedes' Principle:<br>
+    <span class="text-primary text-center d-block">\[ F_b = \rho \cdot g \cdot V \]</span>
+    <span class="text-primary text-center d-block">Where \( F_b \) is the buoyant force, \( \rho \) is fluid density, \( g \) is acceleration due to gravity, and \( V \) is volume of displaced fluid</span><br>
+    The buoyant force acts on your ROV's overall center of volume (where "your ROV" also includes everything attached to your ROV, such as any external buoyancy foam or tools).<br><br>
+    In the case of Beaumont, this can be estimated as approximately the center of the electronic enclosure.
+</p>
+
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/rov_roll_correction.png" alt="The combination of the buoyancy and gravity force results in roll correction"/>
+    <p class="text-secondary fs-6 mt-2">The combination of the buoyancy and gravity force results in roll and pitch correction</p>
+</div>
+
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    
+    The built-in Gazebo buoyancy plugin will apply a force based on the volume and center of volume of the collision elements of your models' links [4][5]. 
+    Ultimately, this will require you to create arbitrary collision elements inside of your models for the purposes of buoyancy. To get around this,
+    this project's custom buoyancy plugin allows you to manually specify the volume and center of volume of your ROV 
+    (as well as other objects) in your world SDF file [1].<br><br>
+
+    You may plan to add foam or weights to your ROV to achieve your desired neutral or negative/positive buoyancy. The effect of these additions
+    can also be simulated by fixing extra links to your ROV model. Then, you can accordingly define these links' inertial and custom buoyancy plugin volume
+    parameters in your model and world SDF files. 
+</p>
 <p id="thrust" class="text-primary h3 my-3 mx-2 dynamic_size_text">Thrust</p>
-<p id="claws" class="text-primary h3 my-3 mx-2 dynamic_size_text">Claws</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    A critical step in the development of your ROV is translating the pilot's commands (ex., surge forward, yaw left) into 
+    the values that will be sent to each of your ROV's thrusters. By simulating thrusters, you can test and tune your control algorithms
+    before moving forward with your thruster layout.<br><br>
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/beaumont_thruster_layout.png" alt="Beaumont's omnidirectional thruster layout"/>
+    <p class="text-secondary fs-6 mt-2">Beaumont's omnidirectional thruster layout</p>
+</div>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The first step to simulating thrusters is to position them correctly around your ROV. An effective approach is to include the thruster body as part of
+    you main CAD model. Then, you can create seperate CAD models for your propellers. Finally, you can attach your propeller link to the thruster body using
+    revolute joints in your model's SDF file.<br><br>
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/beaumont_propeller_joints.png" alt="Beaumont's propeller joints"/>
+    <p class="text-secondary fs-6 mt-2">Beaumont's propeller joints</p>
+</div>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The second step to simulating thrusters is to use a thruster plugin. Gazebo's built-in thruster plugin allows you to specify the force or angular 
+    velocity that will be applied to each thruster you add through publishing to Gazebo topics [3][4]. Gazebo topics can be bridged to ROS2 topics by running 
+    a simple parmeter bridge command [1], as is done in this project's repository [2].<br><br>
+
+    You may be controlling your real ROV's thrusters by communicating with a chip or microcontroller that sends, for example, PWM signals to your thrusters.
+    This means that, for simulation, you may have to add functionality in your control code to determine the force that should be applied by a given thruster.<br><br>
+
+    While the approach above works, it's preferable to minimize changes to your ROV's control code, keeping it separate from major simulation-related workarounds. Therefore, this 
+    project's custom thruster plugin includes an additional operation mode that can be specified in the model's SDF file [2]. This new operation mode expects an input from 1-255 on each 
+    thruster's gazebo topic. Then, using official Blue Robotics T200 Thruster data [6] and a provided voltage mode, the input is mapped to the expected thrust.
+    The mapping range is as follows:
+</p>
+<ul class="text-secondary fs-6 lh-lg dynamic_size_text">
+    <li>Input = 1 -> PWM Value = ~1100us (max forward thrust)</li>
+    <li>Input = 127 -> PWM Value = 1500us (no thrust)</li>
+    <li>Input = 255 -> PWM Value = 1900us (max backward thrust)</li>
+</ul>
+
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The benefit is that you can do the following in your real ROV's control code:
+</p>
+
+<div class="text-secondary fs-6 m-2 dynamic_size_text">
+    <pre><code class="language-python">
+    if simulation_mode:
+        thruster_topics[thruster].publish(thrust_value[thruster])
+    else:
+        # In this example, we are controlling our real ROV's thrusters by communicating with a microcontroller on the i2c bus
+        bus.write_byte_data(MICROCONTROLLER_ADDRESS, THRUSTER_CHANNELS[thruster], thrust_value[thruster]) 
+    </code></pre>
+</div>
+
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The custom thruster plugin's new operation mode also simulates the ramp-up speed of the thrusters in response to input commands [2]. This ensures
+    that the thrusters do not instantaneously reach the input speeds, providing a more realistic simulation.<br><br>
+    
+    The ramp up emulation is done in the code through PID control. You can modifiy the PID parameters in your model's SDF file.<br><br>
+    
+    Of course, this custom thruster plugin's code can also be modified to expect different input values or mimic another thruster.
+</p>
 <p id="hydrodynamics" class="text-primary h3 my-3 mx-2 dynamic_size_text">Hydrodynamics</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    Hydrodynamic forces and moments other than buoyancy (those due to added mass and hydrodynamic damping) can be estimated through Gazebo's built-in hydrodynamics plugin. The plugin requires many SDF parameters specifc to your 
+    ROV. To simulate your ROV quickly, these parameters can be imported from another ROV or based on what feels right. The theory for this plugin can be found in the Gazebo Sim API Reference [3].
+</p>
+<p id="achieving-accuracy" class="text-primary h4 my-3 mx-2 dynamic_size_text">Achieving Accuracy</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    If you want accurately simulate your ROV's hydrodynamics, you'll need to analyze your ROV further.<br><br>
+    
+    The ideas presented here are inspired by Thor Foseen's Book "Guidance and Control of Ocean Vehicles" [7]. <br><br>
+    On page 32, you'll find the following equation:
+    <span class="text-primary text-center d-block">\[ \mathbf{M}\dot{\nu}+\mathbf{C}(\nu)\nu+\mathbf{D}(\nu)\nu+g(\eta)=\tau_{E}+\tau \]</span>
+    <span class="text-primary text-center d-block">Where:</span>
+    <span class="text-primary text-center d-block">\( \mathbf{M} \) is the ROV's rigid body inertia matrix + added mass inertia matrix,</span>
+    <span class="text-primary text-center d-block">\( \nu \) is the ROV's velocity vector in a body-fixed reference frame, containing linear and angular velocities,</span>
+    <span class="text-primary text-center d-block">\( \dot{\nu} \) is the time derivative of \( \nu \),</span>
+    <span class="text-primary text-center d-block">\( \mathbf{C}(\nu)\nu \) is the Coriolis and Centripetal forces and moments containing seperate terms for the rigid-body and added mass inertia matrices</span>
+    <span class="text-primary text-center d-block">\( \mathbf{D}(\nu)\nu \) is the linear and quadratic damping forces and moments,</span>
+    <span class="text-primary text-center d-block">\( g(\eta) \) is the the restoring forces and moments (i.e. gravity and buoyancy),</span>
+    <span class="text-primary text-center d-block">\( \tau_{E} \) is the combined environmental forces and moments,</span>
+    <span class="text-primary text-center d-block">\( \tau \) is the thruster propultion forces and moments</span><br>
+
+    The equation is introduced and explored in Fossen's book [7]. You don't need to interact with this equation directly. The key takeway for simulating your ROV's hydrodynamics 
+    is a fill-in-the-blank approach.<br><br>
+
+    Up to this point (before the hydrodynamics plugin), you've already filled in the blanks for: 
+</p>
+<ul class="text-secondary fs-6 lh-lg dynamic_size_text">
+    <li>The rigid body intertia matrix terms of <span class="text-primary">\( \mathbf{M}\dot{\nu}+\mathbf{C}(\nu)\nu \)</span> by <a class="link-underline-primary Link-hover-opacity-50" href="#setting-inertial-parameters">settings your inertial parameters<a></a></li>
+    <li><span class="text-primary">\( g(\eta) \)</span> by implementing the <a class="link-underline-primary Link-hover-opacity-50" href="#buoyancy">buoyancy plugin<a></a></li>
+    <li><span class="text-primary">\( \tau \)</span> by implementing the <a class="link-underline-primary Link-hover-opacity-50" href="#thrust">thruster plugin<a></a></li>
+</ul>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    <span class="text-primary">\( \tau_{E} \)</span> (waves, wind, ocean current - see Fossen Chapter three [7]) will be ignored in this simulation environment; They can be simulated through other plugins.<br><br>
+    
+    That leaves only <span class="text-primary">\( \mathbf{D}(\nu)\nu \)</span> and the added mass matrix terms of <span class="text-primary">\( \mathbf{M}\dot{\nu}+\mathbf{C}(\nu)\nu \)</span>. This is what 
+    Gazebo's hydrodynamics plugin simulates [8].<br><br>
+
+    The added mass inertia matrix is based on your ROV's geometry. It can be estimated using a Python library called Capytaine [8][9][10]. Specifically, the Capytaine docs provide a direct example on 
+    how to estimate the added mass inertia matrix of a rigid body, which is replicated in a script in this project [2]. You can use a simplified ROV model's STL file after ensuring that it captures the geometric features 
+    of your ROV, as complex models are "compuationally prohibitive" [8] (I can confim).<br><br>
+</p>
+
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/beaumont_for_added_mass_matrix_analysis.png" alt='Beaumont model for added mass matrix analysis'/>
+    <p class="text-secondary fs-6 mt-2">Beaumont model for added mass matrix analysis</p>
+</div>
+
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    You'll notice that the hydrodynamics plugin only accepts six terms for added mass [8], although the added mass matrix contains 36 terms. From Fossen pg. 37, a slow moving ROV with three planes of symmetry 
+    can be assumed to have a diagonal added mass inertia matrix [7]. Off diagonal elements can be added to the plugin, if so desired, for ROV's like Beaumont that lack a perfect 3-axis symmetry.<br><br>
+    
+    The final blank to fill is <span class="text-primary">\( \mathbf{D}(\nu)\nu \)</span>. Here are some things you can do:
+</p>
+<ul class="text-secondary fs-6 lh-lg dynamic_size_text">
+    <li>Use compuational fluid dynamics (CFD) software such as OpenFoam [11]</li>
+    <li>Perform tests with your real ROV in water</li>
+</ul>
+<p id="water-testing" class="text-primary h4 my-3 mx-2 dynamic_size_text">Water Testing</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    You may consult other resources for determing your water testing methodology. Here is a proposed (yet untested) rough approach if you have an onboard inertial measurement unit (IMU) such as a BNO055:<br><br>
+</p>
+<ol class="text-secondary fs-6 lh-lg dynamic_size_text">
+    <li>Record data:</li>
+    <ul>
+        <li>Calibrate your IMU sensor per datasheet recommendations.</li>
+        <li>Pilot your ROV in the water, in all directions, for some time. As soon as thrust input is recieved onboard your ROV, poll your IMU sensor for readings. Avoid frequent changes in thrust input 
+            to minimize the impact of thruster ramp-up time on your data.
+        </li>
+        <li>Save all thruster input and IMU sensor readings.</li>
+    </ul>
+    <li>Decide on a reference frame to use, such as your ROV's center of mass. Accordingly adjust calculations and measurements to this reference frame.</li>
+    <li>Process data:</li>
+    <ul>
+        <li>Clean IMU data through filtering of some means.</li>
+        <li>Based on contorl inputs, estimate (<span class="text-primary">\( \tau \)</span>) at all datapoints. Consider a model for thruster ramp-up time for changes
+            in control inputs.</li>
+        <li>Integrate linear acceleration data to estimate linear velocity at all datapoints.</li>
+        <li>Diffentiate angular velocity data to estimate angular acceleration at all datapoints.</li>
+        <li>Using orientation data, estimate <span class="text-primary">\( g(\eta) \)</span>.</li>
+        <li>Using mass, added mass, acclerations, and velocities, estimate <span class="text-primary">\( \mathbf{M}\dot{\nu}+\mathbf{C}(\nu)\nu \)</span></li>
+    </ul>
+    <li>Calculate the remaining term, <span class="text-primary">\( \mathbf{D}(\nu)\nu \)</span>, based the the equation in Fossen pg. 32 [7]</li>
+</ol>
 <p id="cameras" class="text-primary h3 my-3 mx-2 dynamic_size_text">Cameras</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    Simulating cameras allows you to test your camera positions, orientations, camera joint manipulation code, image processing code, and of course 
+    simulated piloting of your ROV. You'll need to include Gazebo's sensors system plugin in your world SDF file. Following that, cameras can be included as sensors
+    within links in your model's SDF file. There are many Camera features you can tune in SDF [1][4]. You can even render camera streams while running the simulation in headless mode [12]<br><br>
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-40" src="../public/rov_simulator/simulated_camera_feeds.png" alt='Simulated MJPEG Camera Feeds'/>
+    <p class="text-secondary fs-6 mt-2">Simulated MJPEG Camera Feeds</p>
+</div>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    The camera feed is published to a Gazebo topic, which can be bridged to a ROS2 topic [1][2]. For my application, the ROS2 camera stream is converted
+    to an MJPEG stream using the ROS web video server package [13].<br><br>
+</p>
 
+<p id="claws" class="text-primary h3 my-3 mx-2 dynamic_size_text">Claws</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    This project's repository includes a custom claws plugin [2], inspired by Beaumont's linear actuator claw design. For this plugin, you'll need two links (right and left claw) connected 
+    to your model through revolute joints (see the robot building tutorial [1]). For each claw, you can specify a maximum inward and outward rotation in your model's SDF file. 
+    Finally, you can publish the desired claws velocity to the claws' Gazebo topic (or ROS2 topic once bridged).<br><br>
 
-<p id="rovs-and-models" class="text-primary h2 my-3 mx-2 dynamic_size_text">ROVs and Models</p>
-<p id="buoyancy" class="text-primary h3 my-3 mx-2 dynamic_size_text">Beaumont</p>
+    Overall, you can have something like the following in your ROV's control code:
+</p>
+<div class="text-secondary fs-6 m-2 dynamic_size_text">
+    <pre><code class="language-python">
+    if simulation_mode:
+        claws_angvel_z = Float64()
+        if pilot_input.open_claw or pilot_input.close_claw:
+            claws_angvel_z.data = 0.1 if pilot_input.open_claw else -0.1
+        else:
+            # Keep the claw in place in Gazebo
+            claws_angvel_z.data = -0.00001
+        claws_publisher.publish(claws_angvel_z)
+    else:
+        if pilot_input.open_claw or pilot_input.close_claw:
+            # Assume 0x10 is the value for opening the claw, 0x00 is the value for closing the claw
+            claw_value = 0x10 if pilot_input.open_claw else 0x00
+            # In this example, we are controlling our real ROV's claw by communicating with a microcontroller on the i2c bus
+            try:
+                bus.write_byte_data(MICROCONTROLLER_ADDRESS, 0x01, claw_value)
+            except OSError:
+                print(f"Failed to communicate with {MICROCONTROLLER_ADDRESS} on the i2c bus")
+    </code></pre>
+</div>
 
-<p id="worlds" class="text-primary h2 my-3 mx-2 dynamic_size_text">Worlds</p>
+<p id="ros2-integration" class="text-primary h2 my-3 mx-2 dynamic_size_text">ROS2 Integration</p>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    To see how this simulation environment is integrated with a real ROV's software package, see the 2025 Eastern Edge Robotics Software repository [14].<br><br>
+</p>
+<p id="references" class="text-primary h2 my-3 mx-2 dynamic_size_text">References</p>
+<ol class="text-secondary fs-6 lh-lg dynamic_size_text">
+    <li>Open Source Robotics Foundation, "Gazebo Harmonic Documentation," 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://gazebosim.org/docs/harmonic/')">https://gazebosim.org/docs/harmonic/</a>
+    </li>
+    <li>Z. Duraid, "rov-sim," Eastern Edge Robotics, 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://github.com/EasternEdgeRobotics/rov-sim')">https://github.com/EasternEdgeRobotics/rov-sim</a>
+    </li>
+    <li>Open Source Robotics Foundation, "Gazebo Sim API Reference - Tutorials," 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://gazebosim.org/api/sim/8/tutorials.html')">https://gazebosim.org/api/sim/8/tutorials.html/</a>
+    </li>
+    <li>Open Source Robotics Foundation, "gz-sim," Gazebo Sim 8 GitHub Repository, 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://github.com/gazebosim/gz-sim/tree/gz-sim8/src/systems')">https://github.com/gazebosim/gz-sim/tree/gz-sim8/</a>
+    </li>
+    <li>Open Source Robotics Foundation, "Gazebo Sim API Reference - Buoyancy Theory," 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://gazebosim.org/api/sim/8/theory_buoyancy.html')">https://gazebosim.org/api/sim/8/theory_buoyancy.html/</a>
+    </li>
+    <li>Blue Robotics, "T200 Thruster," 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://bluerobotics.com/store/thrusters/t100-t200-thrusters/t200-thruster-r2-rp/')">https://bluerobotics.com/store/thrusters/t100-t200-thrusters/t200-thruster-r2-rp/</a>
+    </li>
+    <li>T. I. Fossen, "Guidance and Control of Ocean Vehicles," Wiley, 1994.</li>
+    <li>Open Source Robotics Foundation, "Gazebo Sim API Reference - Hydrodynamics Theory," 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://gazebosim.org/api/sim/8/theory_hydrodynamics.html')">https://gazebosim.org/api/sim/8/theory_hydrodynamics.html/</a>
+    </li>
+    <li>R. Ancellin and F. Dias, "Capytaine: a Python-based linear potential flow solver," Journal of Open Source Software, vol. 4, no. 36, p. 1341, 2019. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://doi.org/10.21105/joss.01341')">https://doi.org/10.21105/joss.01341</a>
+    </li>
+    <li>R. Babarit and G. Delhommeau, "Theoretical and numerical aspects of the open source BEM solver NEMOH," in Proceedings of the 11th European Wave and Tidal Energy Conference (EWTEC2015), 2015.</li>
+    <li>O. Voldsund, "Estimation and Verification of Hydrodynamic Parameters of an ROV using CFD," The University of Bergen, 2023.</li>
+    <li>Open Source Robotics Foundation, "Gazebo Sim API Reference - Headless Rendering," 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://gazebosim.org/api/sim/8/headless_rendering.html')">https://gazebosim.org/api/sim/8/headless_rendering.html</a>
+    </li>
+    <li>Robot Web Tools, "web_video_server," GitHub Repository, 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://github.com/RobotWebTools/web_video_server')">https://github.com/RobotWebTools/web_video_server</a>
+    </li>
+    <li>Eastern Edge Robotics, "Software 2025," GitHub Repository, 2024. [Online]. Available: <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://github.com/EasternEdgeRobotics/Software_2025')">https://github.com/EasternEdgeRobotics/Software_2025</a>
+    </li>
+</ol>

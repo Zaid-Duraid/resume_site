@@ -47,6 +47,18 @@ $font-size-base:             0.75rem;
 //===============================================================================
 
 
+@media (min-width: 768px) {
+  .w-md-40 {
+      width: 40%;
+  }
+}
+@media (max-width: 768px) {
+    .w-md-40 {
+        width: 90%;
+    }
+}
+
+
 body {
   background-color: rgb(35,35,35);
 }
@@ -97,5 +109,7 @@ p, ul{
 }
 
 .collapse.in { min-height: 50px;border: 1px solid blue; }
+
+
 
 

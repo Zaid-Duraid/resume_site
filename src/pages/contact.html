@@ -39,11 +39,25 @@
 
     <!-- Main content -->
     <main id="main-content">
-        Contact Page
+        <div class="container mt-5 d-flex justify-content-center">
+            <div class="w-100" style="max-width: 600px;">
+            <h2>Contact Me</h2>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="01085496-4650-4a8b-88ac-033a7892583f">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+                <label for="Email" class="form-label">Email address</label>
+                <input type="email" name="email" class="form-control mb-3" placeholder="name@example.com" required>
+                <label for="Message" class="form-label">Your Message</label>
+                <textarea class="form-control mb-3" name="message" rows="3" required></textarea>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </form>
+            </div>
+        </div>
     </main>
 
     <!-- Include footer -->
-    <div id="footer-placeholder"></div>
+    <div id="footer-placeholder" class="fixed-bottom"></div>
 
     <script src="../main.js"></script>
 </body>

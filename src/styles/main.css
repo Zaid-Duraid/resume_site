@@ -11977,6 +11977,16 @@ textarea.form-control-lg {
     font-size: 4vw !important;
   }
 }
+@media (min-width: 768px) {
+  .w-md-40 {
+    width: 40%;
+  }
+}
+@media (max-width: 768px) {
+  .w-md-40 {
+    width: 90%;
+  }
+}
 body {
   background-color: rgb(35, 35, 35);
 }
