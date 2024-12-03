@@ -13,7 +13,7 @@ $nav-tabs-link-active-bg:     $primary;
 
 $font-size-base:             0.75rem;
 //Import the rest of Bootstrap functionality. The code written above is there in order to overwrite some Bootstrap functionality.
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 //================== SWITCH BETWEEN MOBILE AND DESKTOP HEADER ===================
 @media screen and (min-width: 863px) {

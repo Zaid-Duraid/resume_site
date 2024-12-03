@@ -14,13 +14,13 @@ function open_project_collapsible(project_name){
 document.addEventListener("DOMContentLoaded", function () {
 
   // Load header and footer
-  fetch('header.html')
+  fetch('includes/header.html')
       .then(response => response.text())
       .then(data => {
           document.getElementById('header-placeholder').innerHTML = data;
       });
 
-  fetch('footer.html')
+  fetch('includes/footer.html')
       .then(response => response.text())
       .then(data => {
           document.getElementById('footer-placeholder').innerHTML = data;
