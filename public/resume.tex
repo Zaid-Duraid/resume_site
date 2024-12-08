@@ -1,0 +1,250 @@
+%-------------------------
+% Resume in Latex
+% Author : Zaid Duraid
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+% Additional Mathematical Symbols
+\usepackage{latexsym}
+
+% Remove header and footer, reduce margin
+\usepackage[empty]{fullpage}
+
+% Section headings customization
+\usepackage{titlesec}
+
+% Provides additional symbols (such as Euro currency)
+\usepackage{marvosym}
+
+% Allows for the use of colours. Provided options provide a wider range of predifined colours
+\usepackage[usenames,dvipsnames]{color}
+
+% Allows for including graphics
+\usepackage{graphicx}
+
+% Allows for text that is not processed by LaTeX
+\usepackage{verbatim}
+
+% Allows for control over the layout of list items (itemize, enumerate, description environments, etc.)
+\usepackage{enumitem}
+
+% Allows for hyperlinks. Provided options remove the coloured boxes around links
+\usepackage[hidelinks]{hyperref}
+
+% Allows for the customization of headers and footers
+\usepackage{fancyhdr}
+
+% Provides language-specifc typography rules and hyphenation patterns
+\usepackage[english]{babel}
+
+% Provides a tabular environment with adjustable-width columns
+\usepackage{tabularx}
+
+% Improve PDF accesibility by mapping glyphs to Unicode characters
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+% Set page stype to "fancy" for header/footer customization using the "fancyhdr" package
+\pagestyle{fancy}
+
+% Clear all header and footer fields
+\fancyhf{} 
+
+% Explicitly clear the footer field again
+\fancyfoot{}
+
+% Hide the horizontal line that typically appears in the header
+\renewcommand{\headrulewidth}{0pt}
+
+% Hide the horizontal line that typically appears in the footer
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+% \urlstyle{same}
+
+% Prevents LaTeX from stretching vertically to fill the page
+\raggedbottom
+% Aligns text to the left margin (such that text is not fully justified)
+\raggedright
+% Sets the spacing between columns in tabular environments to 0
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\textcolor{ForestGreen}{#1}} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%---------- ALTERNATIVE HEADING ----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Zaid Duraid} \\ \vspace{1pt}
+    % ###-###-#### $|$ \href{mailto:x@x.com}{\textcolor{blue}{name@domain}} $|$ 
+    \href{https://www.zaidduraid.com}{\textcolor{blue}{\Mundus~zaidduraid.com}} $|$
+    \href{https://www.linkedin.com/in/zaid-duraid-932707261/}{\includegraphics[width=0.015\textwidth]{linkedin_img.png}\textcolor{blue}{~linkedin.com/in/zaid-duraid}} $|$
+    \href{https://github.com/Zaid-Duraid}{\raisebox{-0.2\height}{\includegraphics[width=0.025\textwidth]{github_img.png}}\textcolor{blue}{github.com/Zaid-Duraid}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Memorial University of Newfoundland}{St. John's, NL}
+    {Bachelor of Engineering: \textbf{Computer Engineering - CGPA: 4.00/4.00 (95.6\%)}}{Sept. 2022 - May 2027}
+    \resumeItemListStart
+    \resumeItem{\textbf{Dean's List (2022-2024)}}
+    \resumeItem{\textbf{Scholarships:}  \\ Memorial University Alumni Entrance $|$ Verafin Inc. Computer Engineering 
+    $|$ Charlie Sheppard Memorial - Hatch $|$ PEGNL Past-President
+    $|$ Bob Thorburn Memorial $|$ Gander Lions Club Student Community Leaders
+    $|$ NLESD Education Foundation $|$ Town of Gander Scholarship}   
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {FPGA Hardware Engineer Intern}{Jan. 2024 - Apr. 2024 and Sept. 2024 - Dec. 2024}
+      {Avalon Holographics Inc.}{St. John's, NL}
+      \resumeItemListStart
+        \resumeItem{Developed and documented \textbf{simulation testbenches for FPGA designs in SystemVerilog}, leading to the discovery and resolution of 
+                    critical display datapath bugs}
+        \resumeItem{Built new \textbf{internal verification tools using Python} that integrated with existing testbenches, making it possible to verify
+                    hardware image correction for the holographic display}
+        \resumeItem{Contributed to \textbf{FPGA RTL code in SystemVerilog}, including adding runtime-accessible register maps (regmaps) hardware image correction parameter 
+                    loading and debug}
+        \resumeItem{Assisted with the \textbf{bringup of new/refurbished PCB boards and validation of new RTL build releases} by following internal test processes}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Team Co-Lead}{Aug. 2023 - Present}
+      {Eastern Edge Robotics}{St. John's, NL}
+      \resumeItemListStart
+        \resumeItem{Wrote \textbf{backend application with Python, ROS2, and Docker} to run on a Raspberry Pi and interface between the 
+                    piloting frontend and the ROV's thrusters, active tools, sensors, and control profiles database}
+        \resumeItem{Contributed to two independent \textbf {frontend applications, in ReactJS and C++}, providing
+                    both convenient (browser-based) and low-latency control options for piloting the ROV}
+        \resumeItem{Led and mentored software team by preparing \textbf{onboarding resources, documentation, and task assignments},
+                    resulting in significant contributions and experience-gain by 5+ members}
+        \resumeItem{Competed and presented alongside the team at the \textbf{International MATE ROV Competition Explorer Class} 
+                    in 2023 and 2024, placing in 11th and 9th place in the world, respectively}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Protection and Controls Engineer Intern}{May 2023 - Aug 2023}
+      {Newfoundland and Labrador Hydro}{St. John's, NL}
+      \resumeItemListStart
+        \resumeItem{Updated \textbf{electrical schematics and wiring diagrams using Bluebeam Revu} 
+                    for various terminal stations, which were saved and used by on-site technicians for installation of new equipment}
+        \resumeItem{Prepared complete set of above-mentioned documents along with a commissioning manual for the 
+                    \textbf{installation of a new 230kV SF6 circuit breaker} in the Bay d'Espoir Terminal Station}
+        \resumeItem{Conducted site visits to local terminal stations to take measurements of existing electrical panels,
+                    ultimately using data to \textbf{design new electrical panels for the replacement of protection equipment}}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{\textcolor{ForestGreen}{ROV Simulator}} - \emph{Gazebo, C++, ROS2, Python}}{Mar 2024 - Present}
+          \resumeItemListStart
+            \resumeItem{Implemented an \textbf{ROV simulation environment in Gazebo Harmonic} that contains \textbf{customized 
+                        plugins written C++}, facilitating testing of hydrodynamics, thrust, and tooling for any ROV design }
+            \resumeItem{Facilitated \textbf{interagtion of Eastern Edge Robotics' backend with the simulated ROV}, used in
+                        testing of the complete software stack and development of advanced features, such as MATE's computer vision tasks}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: Python, SystemVerilog, C/C++, ReactJS, HTML/CSS, Bash} \\
+     \textbf{Tools}{: Git, Questa, Quartus, Vivado, Docker, ROS, Gazbeo, KiCad, LTSpice, Solidworks, Bluebeam Revu} \\
+     \textbf{Spoken Languages}{: English and Arabic (Native), French (Fluent, DELF B1 Certified)}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}

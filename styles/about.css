@@ -1,4 +1,4 @@
-.resume_download_button {
+.resume_button {
   margin: 0.5%;
   height: 75px;
   width: 150px;
@@ -10,7 +10,7 @@
   border-color: black;
 }
 
-.resume_download_button:hover {
+.resume_button:hover {
   background-color: green;
   transform: scale(1.25);
 }
