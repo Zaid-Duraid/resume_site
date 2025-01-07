@@ -51,11 +51,14 @@ $font-size-base:             0.75rem;
   .w-md-40 {
       width: 40%;
   }
+  .w-md-60 {
+    width: 60%;
+}
 }
 @media (max-width: 768px) {
-    .w-md-40 {
-        width: 90%;
-    }
+  .w-md-40, .w-md-60 {
+      width: 90%;
+  }
 }
 
 

@@ -6,12 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Zaid Duraid</title>
-    <link rel="stylesheet" href="styles//main.css" />
+    <link rel="stylesheet" href="styles/main.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+    <!-- Script for displauing LaTex -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <script>
@@ -59,10 +60,10 @@
             <a class="nav-link" onclick="loadProject('includes/projects/rov_simulator.html')" href="#">ROV Simulator</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" onclick="loadProject('includes/projects/eastern_edge_robotics_2023.html')" href="#">Eastern Edge Robotics 2023</a>
+            <a class="nav-link" onclick="loadProject('includes/projects/photosphere_pcb.html')" href="#">Photosphere PCB</a>
             </li>
-            <li class="nav-item">
             <a class="nav-link" onclick="loadProject('includes/projects/arduino_mayhem.html', add_divider=true)
+                                        .then(() => loadProject('includes/projects/eastern_edge_robotics_2023.html', add_divider=true, clear_previous=false))
                                         .then(() => loadProject('includes/projects/homelab.html', add_divider=true, clear_previous=false))
                                         .then(() => loadProject('includes/projects/outstanding_shenanigans.html', add_divider=true, clear_previous=false))
                                         .then(() => loadProject('includes/projects/minecraft_mapmaking.html', add_divider=true, clear_previous=false))
