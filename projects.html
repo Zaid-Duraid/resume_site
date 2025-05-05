@@ -51,9 +51,6 @@
     <main id="main-content">
         <ul class="nav nav-tabs justify-content-center">
             <li class="nav-item">
-                <a class="nav-link" onclick="loadProject('includes/projects/eastern_edge_robotics_2024.html')" href="#">Eastern Edge Robotics 2024</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" onclick="loadProject('includes/projects/eastern_edge_robotics_2025.html')" href="#">Eastern Edge Robotics 2025</a>
             </li>
             <li class="nav-item">
@@ -62,14 +59,21 @@
             <li class="nav-item">
             <a class="nav-link" onclick="loadProject('includes/projects/photosphere_pcb.html')" href="#">Photosphere PCB</a>
             </li>
-            <a class="nav-link" onclick="loadProject('includes/projects/arduino_mayhem.html', add_divider=true)
-                                        .then(() => loadProject('includes/projects/eastern_edge_robotics_2023.html', add_divider=true, clear_previous=false))
-                                        .then(() => loadProject('includes/projects/homelab.html', add_divider=true, clear_previous=false))
-                                        .then(() => loadProject('includes/projects/outstanding_shenanigans.html', add_divider=true, clear_previous=false))
-                                        .then(() => loadProject('includes/projects/minecraft_mapmaking.html', add_divider=true, clear_previous=false))
-                                        .then(() => loadProject('includes/projects/drone_racing_rings.html', add_divider=true, clear_previous=false))
-                                        .then(() => loadProject('includes/projects/pheonix_aerospace_site.html', add_divider=false, clear_previous=false))" href="#">Other Projects</a>
-            </li>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Other Projects
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" onclick="loadProject('includes/projects/eastern_edge_robotics_2024.html')" href="#">Eastern Edge Robotics 2024</a></li>
+                <li><a class="dropdown-item" onclick="loadProject('includes/projects/arduino_mayhem.html')" href="#">Arduino Mayhem</a></li>
+                <li><a class="dropdown-item" onclick="loadProject('includes/projects/eastern_edge_robotics_2023.html')" href="#">Eastern Edge Robotics 2023</a></li>
+                <li><a class="dropdown-item" onclick="loadProject('includes/projects/homelab.html')" href="#">Homelab</a></li>
+                <li><a class="dropdown-item" onclick="loadProject('includes/projects/outstanding_shenanigans.html')" href="#">Outstanding Shenanigans</a></li>
+                <li><a class="dropdown-item" onclick="loadProject('includes/projects/minecraft_mapmaking.html')" href="#">Minecraft Mapmaking</a></li>
+                <li><a class="dropdown-item" onclick="loadProject('includes/projects/drone_racing_rings.html')" href="#">Drone Racing Rings</a></li>
+                <li><a class="dropdown-item" onclick="loadProject('includes/projects/pheonix_aerospace_site.html')" href="#">Phoenix Aerospace Site</a></li>
+                </ul>
+            </div>
         </ul>
         <div id="project-container">
             <p class="text-primary h1 mt-2 mb-4 mx-2 dynamic_size_text">Projects</p>
