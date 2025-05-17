@@ -87,6 +87,19 @@
     <div id="footer-placeholder" class="fixed-bottom"></div>
 
     <script src="main.js"></script>
+    <script>
+        // Hash-based project loading
+        document.addEventListener("DOMContentLoaded", function() {
+            const hash = window.location.hash.toLowerCase();
+            if (hash === "#rov-simulator") {
+                loadProject('includes/projects/rov_simulator.html');
+            } else if (hash === "#photosphere-pcb") {
+                loadProject('includes/projects/photosphere_pcb.html');
+            } else if (hash === "#eastern-edge-robotics-2025") {
+                loadProject('includes/projects/eastern_edge_robotics_2025.html');
+            }
+        });
+    </script>
 </body>
 </html>
 
