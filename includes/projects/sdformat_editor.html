@@ -1,0 +1,52 @@
+<p class="text-primary h1 mt-2 mb-4 mx-2 dynamic_size_text">SDFormat Editor</p>
+
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    SDFormat Editor is a stand-alone graphical tool for editing SDF (Simulation Description Format) files, notably used by Gazebo robotics simulation. It supports all .sdf files under the <a
+    class="link-underline-primary Link-hover-opacity-50"
+    onclick="button_redirect('https://github.com/gazebosim/sdformat/tree/sdf14')">SDFormat 14 Specification</a> and provides a 3D viewer for visual and collision elements.<br><br>
+
+    This project was developed alongside by peers, Ean Wheeler and Evan Vokey, for the ECE5100 Software Design Project at the Memorial University of Newfoundland. The course emphasized the use of software design patterns and best practices. <a
+        class="link-underline-primary Link-hover-opacity-50"
+        onclick="button_redirect('https://github.com/sdformat-editor/sdformat-editor')">See this project's repository</a><br>
+</p>
+<div class="text-center">
+    <img class="img-fluid rounded ms-2 ps-2 w-md-60" src="public/misc/SDFEditorScreenshot.png" alt="Old Simulation Environment"/>
+    <p class="text-secondary fs-6 mt-2">SDF Editor Screenshot</p>
+</div>
+<p class="text-secondary fs-6 m-2 dynamic_size_text">
+    <br>
+    The project is built in C++ using the CMake build system and relies on the following dependencies:
+
+    <ul>
+        <li>
+            <a class="link-underline-primary Link-hover-opacity-50"
+               onclick="button_redirect('https://github.com/gazebosim/sdformat/tree/sdf14')">
+            libsdformat14 API
+            </a> for SDF parsing, extended by the program's SDFormatParser
+        </li>
+        <li>
+            <a class="link-underline-primary Link-hover-opacity-50"
+               onclick="button_redirect('https://github.com/ocornut/imgui')">
+            Dear ImGui
+            </a> for the user interface
+        </li>
+        <li>
+            <a class="link-underline-primary Link-hover-opacity-50"
+               onclick="button_redirect('https://github.com/OGRECave/ogre')">
+            OGRE
+            </a> for 3D rendering
+        </li>
+        <li>
+            <a class="link-underline-primary Link-hover-opacity-50"
+               onclick="button_redirect('https://github.com/g-truc/glm')">
+            GLM
+            </a> for more complex mathematics operations
+        </li>
+        <li>
+            <a class="link-underline-primary Link-hover-opacity-50"
+               onclick="button_redirect('https://github.com/google/googletest')">
+            GoogleTest
+            </a>
+        </li>
+    </ul>
+</p> 
