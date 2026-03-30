@@ -143,12 +143,6 @@
 
 \begin{document}
 
-%---------- ALTERNATIVE HEADING ----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
 \begin{center}
     \textbf{\Huge \scshape Zaid Duraid} \\ \vspace{1pt}
     % ###-###-#### $|$ \href{mailto:x@x.com}{\textcolor{blue}{name@domain}} $|$ 
@@ -162,7 +156,7 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Memorial University of Newfoundland}{St. John's, NL, Canada}
-    {Bachelor of Engineering: \textbf{Computer Engineering - CGPA: 4.00/4.00 (95.2\%)}}{Sept. 2022 - April 2027}
+    {Bachelor of Engineering: \textbf{Computer Engineering - CGPA: 4.00/4.00 (95.3\%)}}{Sep. 2022 - Apr. 2027}
     \resumeItemListStart
     \resumeItem{\textbf{Dean's List (2022-2025)}}
     \resumeItem{\textbf{Scholarships}: Memorial University Alumni Entrance, Innovasea Computer Engineering,
@@ -176,47 +170,61 @@
 \section{Experience}
   \resumeSubHeadingListStart
 
+  \resumeSubheading
+    {Drive Inverter (DI) Firmware Validation Engineer Intern}{Jan. 2026 - Present}
+    {Tesla Inc.}{Palo Alto, California, USA}
+    \resumeItemListStart
+      \resumeItem{Implemented \textbf{LIN in Verilog on a Xilinx FPGA} for Tesla's processor-in-the-loop (PIL) validation, with fault injection 
+          and an AXI stream Linux driver, helping unblock PIL coverage for \(\sim\)92\% of DI firmware configurations}
+      \resumeItem{Integrated a \textbf{MATLAB PMSR motor model onto a Xilinx FPGA in Verilog},
+                 enabling real-time PIL dyno testing for DI firmware configurations not ready for high-load HIL, all within minutes of iteration time}
+      \resumeItem{Developed \textbf{fault-handling validation tests} for verifying correct and timely fault responses 
+            across DI firmware configurations, including 6+ fault scenarios across gate driver, power, and electrical oil pump systems}
+      \resumeItem{Drove adoption of \textbf{PIL developer and coding agent workflow improvements} such as optimized markdown documentation and
+            embedded runtime-readable git-hash metadata in FPGA bitstreams} % TODO FOR ZAID: Implement and talk about claude skills
+    \resumeItemListEnd
+    
     \resumeSubheading
-      {Advanced Research Electrical Engineer Intern}{May. 2025 - Aug. 2025}
+      {Advanced Research Electrical Engineer Intern}{May 2025 - Aug. 2025}
       {Solace Power}{St. John's, NL, Canada}
       \resumeItemListStart
-        \resumeItem{Improved the design of a multi-MHz synchronous rectifier by adding a \textbf{a PLL for closed-loop control} to maintain 
-        operation during \(\sim \)100us loss of switch gate driver signal}
+        \resumeItem{Improved the design of a multi-MHz synchronous rectifier by adding \textbf{a PLL for closed-loop control} to maintain 
+        operation during \(\sim \)100 us loss of switch gate driver signal}
         % \resumeItem{Realized the \textbf{implementation of a CD74HC7046 PLL for closed-loop control} of a 2MHz synchronous rectifier. The design maintained synchronous switching 
         %             during ~10ms loss of 2MHz input signal}
         \resumeItem{Designed and built single-layer PCBs to quickly verify \textbf{integration of subcircuits} (e.g., RC inverter delay line for phase shift on GaN FET driver signal) into multilayer PCBs}
         \resumeItem{Researched \textbf{EMC solutions for a tens of MHz wireless power system}, reducing noise on key harmonics}
-        \resumeItem{Developed \textbf{C firmware for a TI F28003x microcontroller} to generate internal-clock or interrupt-driven PWM signals up to 9MHz, 
+        \resumeItem{Wrote \textbf{C firmware for a TI F28003x microcontroller} to generate internal-clock or interrupt-driven PWM signals up to 9 MHz, 
                   with adjustable frequency, duty cycle, and phase shift via CANBUS}
       \resumeItemListEnd
 
     \resumeSubheading
-      {FPGA Hardware Engineer Intern}{Jan. 2024 - Apr. 2024 and Sept. 2024 - Dec. 2024}
+      {FPGA Hardware Engineer Intern}{Jan. 2024 - Apr. 2024 and Sep. 2024 - Dec. 2024}
       {Avalon Holographics Inc.}{St. John's, NL, Canada}
       \resumeItemListStart
-        \resumeItem{Developed and documented \textbf{simulation testbenches for FPGA designs in SystemVerilog}, leading to the discovery and resolution of 
-                    critical display datapath bugs}
-        \resumeItem{Built new \textbf{internal verification tools using Python} that integrated with existing testbenches to
-                    verify hardware image correction for the holographic display}
-        \resumeItem{Contributed to \textbf{FPGA RTL code in SystemVerilog}, including adding runtime-accessible register maps (regmaps) for debug and hardware
-                    image correction parameter loading}
+        \resumeItem{Led the development of new \textbf{internal verification tools using Python} that integrated with existing testbenches to
+                    verify hardware image correction features for the holographic display and reduce iteration time by 10x}
+        \resumeItem{Developed and documented \textbf{simulation testbenches for FPGA designs in SystemVerilog} that integrate with internal verification tools, 
+                    reducing critical bug discovery from \(\sim \)2 months on hardware to \(\sim \)2–3 days in simulation}
+        % \resumeItem{Contributed to \textbf{FPGA RTL code in SystemVerilog}, including adding runtime-accessible register maps for debug and hardware
+        %             image correction parameter loading}
         \resumeItem{Followed internal test processes by \textbf{assembling hardware, executing tests, and running TCL scripts} 
-                    for the bring-up of new/refurbished PCBs and validation of FPGA build releases}
+                    for the bring-up of new/refurbished PCBs and validation of FPGA bitstream releases}
       \resumeItemListEnd
 
-    \resumeSubheading
-      {Software Team Co-Lead (Unpaid)}{Aug. 2023 - Present}
-      {Eastern Edge Robotics}{St. John's, NL, Canada}
-      \resumeItemListStart
-        \resumeItem{Wrote \textbf{backend applications utilizing ROS2 and Docker with Python and C++} to run on a Raspberry Pi and interface between the 
-                    piloting frontend and the ROV's thrusters, tools, sensors, and control profiles database}
-        \resumeItem{Contributed to two independent \textbf{frontend applications, in ReactJS and C++}, providing
-                    both convenient (browser-based) and low-latency options for piloting the ROV}
-        \resumeItem{Led and mentored software team by preparing \textbf{onboarding resources, documentation, and task assignments},
-                    resulting in significant contributions and experience-gain by 5+ members}
-        \resumeItem{Competed and presented alongside the team at the \textbf{International MATE ROV Competition Explorer Class} 
-                    in 2023, 2024, and 2025, placing in 11th, 9th, and 3rd place in the world out of around 20-30 teams, respectively}
-    \resumeItemListEnd
+    % \resumeSubheading
+    %   {Software Team Co-Lead (Unpaid)}{Aug. 2023 - Present}
+    %   {Eastern Edge Robotics}{St. John's, NL, Canada}
+    %   \resumeItemListStart
+    %     \resumeItem{Wrote \textbf{backend applications utilizing ROS2 and Docker with Python and C++} to run on a Raspberry Pi and interface between the 
+    %                 piloting frontend and the ROV's thrusters, tools, sensors, and control profiles database}
+    %     \resumeItem{Contributed to two independent \textbf{frontend applications, in ReactJS and C++}, providing
+    %                 both convenient (browser-based) and low-latency options for piloting the ROV}
+    %     \resumeItem{Led and mentored software team by preparing \textbf{onboarding resources, documentation, and task assignments},
+    %                 resulting in significant contributions and experience-gain by 5+ members}
+    %     \resumeItem{Competed and presented alongside the team at the \textbf{International MATE ROV Competition Explorer Class} 
+    %                 in 2023, 2024, and 2025, placing in 11th, 9th, and 3rd place in the world out of around 20-30 teams, respectively}
+    % \resumeItemListEnd
   \resumeSubHeadingListEnd
 
 
@@ -224,16 +232,21 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{\textcolor{ForestGreen}{ROV Simulator}} - \emph{Gazebo, C++, ROS2, Python}}{Mar. 2024 - Present}
+          {\textbf{\textcolor{ForestGreen}{Eastern Edge Robotics Student Design Team Software Co-Lead}} - \emph{ Python, C/C++ }}{Aug. 2023 - Dec. 2025}
           \resumeItemListStart
-            \resumeItem{Implemented an \textbf{ROV simulation environment in Gazebo Harmonic} with \textbf{custom 
-                        C++ plugins}, facilitating testing of the complete software stack, thruster configuration, and tooling for small ROV designs}
+            \resumeItem{Built \textbf{ROS2 applications on a Raspberry Pi} to interface with ROV hardware over UART and I2C}
+            \resumeItem{Contributed to \textbf{two frontend piloting applications for browser-based and low-latency control}}
+            \resumeItem{Implemented a \textbf{Gazebo ROV simulation environment} with C++ plugins for validating the full software stack}
+            % \resumeItem{Led and mentored software team by preparing \textbf{onboarding resources, documentation, and task assignments},
+            %             resulting in significant contributions and experience-gain by 5+ members}
+            \resumeItem{Competed and presented alongside the team at the International MATE ROV Competition Explorer Class 
+                        in 2023, 2024, and 2025, \textbf{placing in 11th, 9th, and 3rd place in the world out of around 20-30 teams}, respectively}
           \resumeItemListEnd
       \resumeProjectHeading
       {\textbf{\textcolor{ForestGreen}{Photosphere Board}} - \emph{KiCad}}{Dec. 2024 - Jan. 2025}
       \resumeItemListStart
         \resumeItem{Designed a \textbf{PCB in KiCad} that interfaces with the Raspberry Pi Compute Module 4 and includes 
-                    \textbf{dual MIPI CSI camera ports and USB 2.0} for multi-view video streaming in a space-constrained environment}
+                    \textbf{dual MIPI CSI camera ports and USB 2.0} for multi-view video streaming in a space-constrained 5x10x5 cm environment}
       \resumeItemListEnd
     \resumeSubHeadingListEnd
 
@@ -244,9 +257,10 @@
 \section{Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Programming Languages}{: Python, SystemVerilog, C/C++, ReactJS, HTML/CSS, Bash} \\
-     \textbf{Tools}{: Git, KiCad, Questa, Quartus, Vivado, Docker, ROS, Gazebo, LTSpice, Altium, Solidworks, Bluebeam Revu} \\
-     \textbf{Spoken Languages}{: English and Arabic (Native), French (Fluent, DELF B1 Certified)}
+     \textbf{Software/Firmware/HDL}{: Verilog/SystemVerilog, C/C++. Python, Golang, Rust, Typescript } \\
+     \textbf{Hardware}{: Vivado, Quartus, Questa, KiCad, LTSpice, Altium} \\
+     \textbf{Tools}{: Git, Claude Code, Docker, ROS, Gazebo, Solidworks, Onshape} \\
+    %  \textbf{Spoken Languages}{: English and Arabic (Native), French (Fluent, DELF B1 Certified)}
     }}
  \end{itemize}
 
