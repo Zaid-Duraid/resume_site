@@ -92,8 +92,9 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule]
+\titlespacing*{\section}{0pt}{-1pt}{10pt}
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -128,6 +129,14 @@
     \end{tabular*}\vspace{-7pt}
 }
 
+\newcommand{\resumeProjectSubheading}[4]{
+    \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \small\textbf{\textcolor{ForestGreen}{#1}} & \small #2 \\
+      \textit{\footnotesize #3} & \textit{\footnotesize #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
@@ -159,8 +168,8 @@
     \resumeItemListStart
     \resumeItem{\textbf{Dean's List (2022-2025)}}
     \resumeItem{\textbf{Scholarships}: Memorial University Alumni Entrance, Fry Family Foundation Dean's Leadership, Innovasea Computer Engineering,
-    Verafin Inc. Computer Engineering, Charlie Sheppard Memorial - Hatch, PEGNL Past-President, 
-    Bob Thorburn Memorial, Gander Lions Club Community Leaders, NLESD Education Foundation}
+    Verafin Inc. Computer Engineering, Charlie Sheppard Memorial - Hatch}
+    %, PEGNL Past-President, Bob Thorburn Memorial, Gander Lions Club Community Leaders, NLESD Education Foundation}
     \resumeItemListEnd
   \resumeSubHeadingListEnd
 
@@ -229,18 +238,20 @@
 
 
 %-----------PROJECTS-----------
-\section{Projects}
+\section{Projects \& Extracurriculars}
     \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{\textcolor{ForestGreen}{Part Time Founding Engineer}} - \emph{ Typescript, NodeJS, React, React3Fiber, AWS CDK }}{Dec. 2025 - July 2026}
+      \resumeProjectSubheading
+          {Part Time Founding Engineer}{Dec. 2025 - July 2026}
+          {OmaScan}{Typescript, NodeJS, React, React3Fiber, AWS CDK}
           \resumeItemListStart
             \resumeItem{Contributed to a full-stack cloud application for uploading, hosting, and interacting with 3D GLB scans 
                         for occupational therapy home assessments, \textbf{supporting patient data for dozens of pilot users}}
             \resumeItem{Integrated compliant product analytics using PostHog, \textbf{providing previously unavailable visibility
                         into daily active users and in-app usage patterns} across development, staging, and production environments}
           \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{\textcolor{ForestGreen}{Eastern Edge Robotics Student Design Team Software Co-Lead}} - \emph{ Python, C/C++ }}{Aug. 2023 - Dec. 2025}
+      \resumeProjectSubheading
+          {Student Design Team Software Co-Lead}{Aug. 2023 - Dec. 2025}
+          {Eastern Edge Robotics}{Python, C/C++}
           \resumeItemListStart
             \resumeItem{Built \textbf{ROS2 applications on a Raspberry Pi} to interface with ROV hardware over UART and I2C}
             % \resumeItem{Contributed to \textbf{two frontend piloting applications for browser-based and low-latency control}}
